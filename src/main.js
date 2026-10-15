@@ -1,3 +1,5 @@
+import { Actor } from 'apify';
+
 export async function auditSeoPage(url) {
   const start = Date.now();
   const res = await fetch(url, {
@@ -40,13 +42,19 @@ export async function auditSeoPage(url) {
   };
 }
 
-async function main() {
-  const urls = ['https://example.com'];
-  const out = [];
-  for (const u of urls) {
-    out.push(await auditSeoPage(u));
+await Actor.init();
+const input = (await Actor.getInput()) || {};
+const urls = Array.isArray(input.urls) && input.urls.length > 0 ? input.urls : ['https://example.com'];
+
+const results = [];
+for (const u of urls) {
+  try {
+    results.push(await auditSeoPage(u));
+  } catch (e) {
+    results.push({ url: u, error: e.message, auditedAt: new Date().toISOString() });
   }
-  console.log(JSON.stringify(out, null, 2));
 }
 
-main();
+await Actor.pushData(results);
+console.log('Pushed', results.length, 'SEO audit records to Apify Dataset.');
+await Actor.exit();
