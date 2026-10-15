@@ -1,0 +1,19 @@
+{
+  "title": "Technical SEO Site Auditor Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Target Page URLs",
+      "type": "array",
+      "description": "List of URLs to run a full technical SEO and broken link check on.",
+      "editor": "stringList",
+      "prefill": [
+        "https://example.com"
+      ]
+    }
+  },
+  "required": [
+    "urls"
+  ]
+}

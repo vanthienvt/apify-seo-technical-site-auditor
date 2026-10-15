@@ -1,0 +1,12 @@
+{
+  "actorSpecification": 1,
+  "name": "apify-seo-technical-site-auditor",
+  "title": "Technical SEO & Broken Link Site Auditor (Agency Grade)",
+  "description": "Audits web pages for missing title/meta tags, H1 structure, canonical URLs, JSON-LD structured data, OpenGraph tags, and broken internal/external links.",
+  "version": "1.0",
+  "meta": {
+    "templateId": "js-start"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}

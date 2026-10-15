@@ -1,0 +1,14 @@
+{
+  "name": "apify-seo-technical-site-auditor",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Agency-grade Technical SEO & Broken Link Auditor for Apify Store",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "node src/main.js --test"
+  },
+  "dependencies": {
+    "apify": "^3.2.0"
+  }
+}
